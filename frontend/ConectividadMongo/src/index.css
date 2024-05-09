@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*
+no quiero ir metiendo cad rato
+los colores en ela rchivo de tilwind
+asi qeu directamente lo mandamos par aca
+*/
+:root{
+ --verdeOscuro: #061621;  
+ --verdeOscuro2: #014E3D;
+}
+.fondoPrincipal{
+  background-color: var(--verdeOscuro);
+  
+}
+.titulo{
+   text-align: center;
+   font-family: 'Lexend' ;
+  color: var(--verdeOscuro2);
+  font-size: 2rem;
+  font-weight: bold;
+}
