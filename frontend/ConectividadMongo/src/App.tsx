@@ -1,12 +1,14 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState,useEffect } from 'react';
-
+import { useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import type UserType from './types/userType';
 import axios from 'axios'
 function App() {
   const [usuario, setUsuario] = useState('')
   const [password, setPassword] = useState('')
-  const [autenticado,setAutenticado] = useState(false)
+
+  const navigate = useNavigate()
   const  handleIniciar = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if([usuario,password].includes('')){
@@ -15,17 +17,25 @@ function App() {
     } 
     const iniciarSesion = async () => {
   const response = await axios.get(`http://localhost:3000/user/begin/${usuario}/${password}`)
-  console.log(response.data)
   if(response.data && response.data.message !== 'User not found'){
-    setAutenticado(true)
-    //mandamos al local storge
+
+   
+    //mandamos el objeto a localStorage
+    //antes de enviarlo vamos a ver si tiene permisos de lectura
+    const user: UserType = response.data
+    if(!user.permissions.includes('read')){
+      return toast.error('No tienes permisos de lectura para entrar')
+    }
+  localStorage.setItem('usuario',JSON.stringify(user))
+  navigate('/home')
+
     return
   }
   if(response.data && response.data.message ==='User not found'){
        toast.error('Usuario o contraseña incorrecta')
-  } else {
-       toast.error('Error desconocido')
-  }
+  } 
+
+  
 }
      iniciarSesion()
 

@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import Family from '../model/Familias';
 export default class FamilyController {
     static async getFamilies(req:Request, res:Response) {
-        const families = await Family.find();
+        const families = await Family.find().select('fam_nombre _id');
         res.json(families);
     }
     static async createFamily(req:Request, res:Response) {
