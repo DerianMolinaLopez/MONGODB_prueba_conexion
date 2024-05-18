@@ -9,8 +9,8 @@ export default class FamilyController {
     }
     static async createFamily(req:Request, res:Response) {
         try{
-            const {fam_nombre} = req.body;
-            const newFamily = new Family({fam_nombre});
+            const {fam_nombre,articles} = req.body;
+            const newFamily = new Family({fam_nombre,articles});
             await newFamily.save();
         }catch(error){
             console.log(error)

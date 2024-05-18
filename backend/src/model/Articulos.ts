@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-interface IArticle extends Document {
+export interface IArticle extends Document {
     
     art_name: string,
     art_description: string,

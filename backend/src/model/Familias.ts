@@ -2,9 +2,9 @@ import { Articles_T } from './Articulos';
 import mongoose, { Document, Schema, PopulatedDoc } from 'mongoose';
 
 
-interface FamilyType extends Document {
+export interface FamilyType extends Document {
     fam_nombre: string;
-    articles: PopulatedDoc<Articles_T & Document>;
+    articles: PopulatedDoc<Articles_T & Document>[];
 }
 
 const FamilySchema: Schema = new Schema({

@@ -21,3 +21,6 @@ asi qeu directamente lo mandamos par aca
   font-size: 2rem;
   font-weight: bold;
 }
+.fondo-gradiente {
+  background: linear-gradient(to right, #014E3D, #061621);
+}

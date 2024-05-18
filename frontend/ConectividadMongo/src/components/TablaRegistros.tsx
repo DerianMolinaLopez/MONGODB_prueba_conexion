@@ -16,6 +16,10 @@ const TablaRegistros = ({registros}:TablaRegistrosProps) => {
           </div>
           <div className=''>
             <h3>{registro.fam_nombre}</h3>
+            <article>
+              <button>Modificar</button>
+              <button>Eliminar</button>
+            </article>
           </div>
          </article>
        ))}

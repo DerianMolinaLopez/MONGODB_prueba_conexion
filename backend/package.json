@@ -4,7 +4,8 @@
   "description": "probando la actualizacion al CRUD de la materia de esparza pero con mongodb, TS en el backend",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon --exec ts-node src/index.ts"
+    "server": "nodemon --exec ts-node src/index.ts",
+    "seed": "ts-node src/seed/index.ts"
   },
   "author": "Derian Molina Lopez",
   "license": "ISC",
